@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Calculator</title>
+  <title>Calculator with Cancel</title>
   <style>
 
     header {
@@ -66,6 +66,32 @@
     .span-2 {
       grid-column: span 2;
     }
+
+    .function{
+      height: 60px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #f30000;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .function:hover {
+      background-color: rgb(246, 104, 104);
+    }
+    .equals{
+      height: 60px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #00ff33;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .equals:hover {
+      background-color: rgb(143, 255, 128);
+    }
+
   </style>
 </head>
 <body>
@@ -73,15 +99,15 @@
   <div class="calculator">
     <input type="text" id="display" disabled />
     <div class="buttons">
-      <button onclick="clearDisplay()">C</button>
+      <button class="function" onclick="clearDisplay()">C</button>
       <button onclick="appendValue('*')">*</button>
       <button onclick="appendValue('/')">/</button>
-      <button onclick="cancel()">⌫</button>
+      <button class="function" onclick="cancel()">⌫</button>
 
       <button onclick="appendValue('1')">1</button>
       <button onclick="appendValue('2')">2</button>
       <button onclick="appendValue('3')">3</button>
-      <button onclick="calculate()">=</button>
+      <button onclick="appendValue('%')">%</button>
 
       <button onclick="appendValue('4')">4</button>
       <button onclick="appendValue('5')">5</button>
@@ -95,7 +121,7 @@
 
       <button onclick="appendValue('.')">.</button>
       <button class="span-2" onclick="appendValue('0')">0</button>
-      <button onclick="appendValue('%')">%</button>
+      <button class="equals" onclick="calculate()">=</button>
     </div>
   </div>
 
