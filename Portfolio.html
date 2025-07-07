@@ -7,7 +7,20 @@
   <title>Revathi Velu Portfolio</title>
   <style>
 
-    body {
+    footer {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+}
+
+  
+  w.body {
   font-family: 'Poppins', sans-serif;
   background-color: #f9f9f9;
   color: #333;
@@ -82,6 +95,20 @@ nav {
       height: 10vh;
       font-size: 190%;
       font-weight: bold;
+    }
+
+       .btn {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s;
+    }
+    .btn:hover {
+      background: #0056b3;
+      transform: scale(1.05);
     }
     
     .hero {
@@ -163,12 +190,7 @@ nav {
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    footer {
-      background: #1e293b;
-      color: #cbd5e1;
-      text-align: center;
-      padding: 1rem;
-    }
+    
     a.button {
       display: inline-block;
       padding: 0.5rem 1rem;
@@ -183,10 +205,14 @@ nav {
     .linkedin {
       border: 2px solid #6366f1;
       color: #6366f1;
-    }canvas {
-      max-width: 600px;
-      margin: auto;
     }
+  
+    .git{
+      background: #6366f1;
+      color: white;
+    }
+
+
   </style>
 </head>
 <body>
@@ -264,19 +290,32 @@ nav {
     <p>Created a website named Marine Gaurdian that will give information about the sea and species and ask questions from them .</p>
   </section>
 
+   <section id="resume">
+    <h2>RESUME</h2>
+    <p>To know more about myself , Kindly check out my Resume</p>
+    <a class="btn" href="C:\Users\Admin\Desktop\portfolio\Revathi_Professional_Resume.pdf" download>📄Resume</a>
+  </section>
+
+
   <section id="contact">
     <h2>For More Details</h2>
     <div class="contact-buttons">
       <a href="mailto:rekhavelu2020@gmail.com" class="button email">Email Me</a>
       <a href="https://linkedin.com/in/revathi-velu-1b9813331" class="button linkedin" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Reva2509/CODSOFT.git" class="button git" target="_blank">GitHub</a> 
+
+
     </div>
-    <button class="theme" id="darkModeToggle">🌙Change Theme</button>
+    
 
   </section>
+  
+  <button class="theme" id="darkModeToggle">🌙Change Theme</button>
 
   <footer>
-    &copy; 2024 Revathi Velu. Crafted with 💜 and code.
-  </footer>
+  <p>&copy; 2025 Revathi Velu. Designed with ❤️</p>
+</footer>
+
 
   <script>
     function scrollToSection(id) {
