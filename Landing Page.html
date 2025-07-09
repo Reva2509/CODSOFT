@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landing Page</title>
+  <style>
+
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body.day {
+      background: linear-gradient(to bottom, #87ceeb 0%, #ffffff 50%, #87ceeb 100%);
+    }
+
+    body.night {
+      background: linear-gradient(to bottom, #0f2027 0%, #203a43 50%, #2c5364 100%);
+      color: blanchedalmond;
+    }
+
+    .sky {
+      position: relative;
+      height: 300vh;
+      width: 100%;
+    }
+
+    .sun, .moon {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      z-index: 2;
+      transition: opacity 1s;
+    }
+
+    .sun {
+      background: yellow;
+      box-shadow: 0 0 40px rgba(255, 255, 0, 0.5);
+    }
+
+    .moon {
+      background: #ccc;
+      transition: ease-in 3.6s;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+
+    .cloud {
+      position: absolute;
+      width: 100px;
+      height: 40px;
+      background: #fff;
+      border-radius: 50px;
+      opacity: 0.4;
+      animation: moveClouds 60s linear infinite;
+      transition: opacity 1s;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      top: -10px;
+    }
+
+    .cloud::before {
+      left: 10px;
+    }
+
+    .cloud::after {
+      left: 50px;
+    }
+
+    @keyframes moveClouds {
+      0% { left: -150px; }
+      100% { left: 110%; }
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 57px;
+      left: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+      z-index: 10;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: rgba(0,0,0,0.5);
+    }
+
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      display: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.4); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 100vh 20px 20px 20px;
+      color: #333;
+      font-size: 24px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #f8fafc, #e0f2fe);
+      color: #1e293b;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+
+    header nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 500;
+    }
+
+    header nav a:hover {
+      color: #2226ea;
+    }
+
+    .section {
+      padding: 100px 20px 60px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #6366f1, #8b5cf6);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: #3b8cff;
+      font-weight: bold;
+    }
+
+    .button {
+      background: #370be9;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .button:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .skill-box {
+    text-align: center;
+    width: 100px;
+  }
+
+  .skill-box img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+  }
+
+  .skill-box p {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .skill-box:hover img {
+    transform: scale(1.1);
+  }
+
+    .bar-fill {
+      height: 10px;
+      background: #6366f1;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1e293b;
+      color: #cbd5e1;
+    }
+
+    .contact-btn {
+    display: inline-block;
+    background-color: #6366f1;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s;
+  }
+
+  .contact-btn:hover {
+    background-color: #4f46e5;
+    transform: scale(1.05);
+  }
+    .resume a {
+      text-decoration: none;
+      color: #ededed;
+      margin: 0 1rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s;
+    }
+    .btn:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="day">
+  <button class="toggle-btn" onclick="toggleMode()">Switch to Night</button>
+  <div class="sun" id="sun"></div>
+  <div class="moon" id="moon" style="opacity: 0;"></div>
+
+  <!-- Stars layer -->
+  <div class="stars" id="stars"></div>
+  
+
+  <header>
+    <div><strong>Revathi Velu</strong></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero section" id="home">
+    <h1>Hello, I'm Revathi</h1>
+    <p>Aspiring Software Engineer passionate about mathematics and coding.</p>
+    <button class="button" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+  </section>
+
+  <section class="section" id="about" style="text-align: center;">
+    <h2>About Me</h2>
+    <p style="margin-top: 1rem;">
+      A second-year Computer Science undergraduate at <b>R.M.D. Engineering College</b> (Class of 2028), with a strong interest in solving logical problems. At InternPe, I completed an internship where I built interactive games to enhance user engagement.</p>
+  </section>
+
+  <section class="section" id="skills" style="text-align: center;" >
+  <h2>My Skills</h2>
+  <div style="margin-top: 2rem; display: flex; gap: 40px; flex-wrap: wrap; justify-content: center;">
+    <div class="skill-box">
+      <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java" />
+      <p>Java</p>
+    </div>
+    <div class="skill-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" />
+      <p>Python</p>
+    </div>
+    <div class="skill-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++" />
+      <p>C++</p>
+    </div>
+    <div class="skill-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5" />
+      <p>HTML</p>
+    </div>
+    <div class="skill-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3" />
+      <p>CSS</p>
+    </div>
+  </div>
+</section>
+
+  <section class="section" id="contact" style="text-align: center;">
+  <h2>Contact Me</h2>
+  <p style="margin: 1rem 0;">I'm open to internship opportunities and collaboration.</p>
+
+  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 1.5rem;">
+    <a href="mailto:rekhavelu2020@gmail.com" class="contact-btn">📧 Email Me</a>
+    <a href="https://linkedin.com/in/revathi-velu-1b9813331" target="_blank" class="contact-btn">🔗 LinkedIn</a>
+    <a href="tel:+919445672344" class="contact-btn">📞 Call</a>
+  </div>
+</section>
+
+
+  <section id="resume" class="section resume" style="text-align: center;" >
+    <h2>RESUME</h2>
+    <p>Explore my resume to learn more about my journey and qualifications</p><br>
+    <a class="btn" href="C:\Users\Admin\Desktop\portfolio\Revathi_Professional_Resume.pdf" download>📄 View Resume</a>
+  </section>
+
+
+  <footer>
+    &copy; 2024 Revathi Velu — Crafted with 💻 and 💜
+  </footer>
+  <script> 
+
+const sun = document.getElementById('sun');
+    const moon = document.getElementById('moon');
+    const stars = document.getElementById('stars');
+    const body = document.body;
+    const button = document.querySelector('.toggle-btn');
+    let isDay = true;
+
+    // Generate random stars
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDelay = Math.random() * 2 + 's';
+      stars.appendChild(star);
+    }
+
+    function toggleMode() {
+      isDay = !isDay;
+
+      if (isDay) {
+        body.classList.remove('night');
+        body.classList.add('day');
+        sun.style.opacity = 1;
+        moon.style.opacity = 0;
+        stars.style.display = 'none';
+        button.textContent = "Switch to Night";
+      } else {
+        body.classList.remove('day');
+        body.classList.add('night');
+        sun.style.opacity = 0;
+        moon.style.opacity = 1;
+        stars.style.display = 'block';
+        button.textContent = "Switch to Day";
+      }
+    }
+
+  </script>
+
+</body>
+</html>
